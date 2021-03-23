@@ -21,7 +21,6 @@
                     <img src="img/avatar_io.jpg" alt="">
                     <span>Omar D'Amico</span>
                 </div>
-                
                 <div>
                     <p><i class="fas fa-circle-notch"></i></p>
                     <p><i class="fas fa-comment-alt"></i></p>
@@ -39,25 +38,13 @@
                 <div><p><i class="fas fa-search"></i></p><input placeholder="Cerca o inizia una nuova chat" type="text"></div>
             </div>
             <div id="contactList">
-                <!-- temporaneo poi credo l'array -->
-                <div>
-                    <img src="img/avatar_1.jpg" alt="">
-                    <p>Michele</p>
-                </div>
-                <div>
-                    <img src="img/avatar_2.jpg" alt="">
-                    <p>Fabio</p>
-                </div>
-                <div>
-                    <img src="img/avatar_3.jpg" alt="">
-                    <p>Samuele</p>
-                </div>
-               <div>
-                    <img src="img/avatar_4.jpg" alt="">
-                    <p>Luisa</p>
+                <div v-for="contact in contacts">
+                    <img :src=contact.avatar alt="Contact profile pic">
+                    <p>{{contact.name}}</p>
                 </div>
             </div>
         </div>
+        <!-- chiusura contactsArea -->
         <div id="messagesArea">
             <div class="personal">
                 <div>
@@ -70,20 +57,23 @@
                     <p><i class="fas fa-ellipsis-v"></i></p>
                 </div>
             </div>
-            <div id="messages">
-                <p>ciao</p>
+            <div id="messages" class="clearfix">
+                <div class="floatRight" v-for="message in contacts[0].messages">
+                    <p>{{ message.text }}</p>
+                    <p>{{ message.date }}</p>
+                </div>
+                <div class="floatLeft">
+                    <p>Messaggio di prova</p>
+                    <p>Orario</p>
+                </div>
             </div>
             <div id="typing">
-
                     <p><i class="far fa-smile"></i></p>
                     <input placeholder="Scrivi un messaggio" type="text">
                     <p><i class="fas fa-microphone"></i></p>
-   
-
             </div>
-
         </div>
-
+        <!-- chiusura messagesArea -->
     </div> 
     <!-- chiusura container -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
