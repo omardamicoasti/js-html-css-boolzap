@@ -26,13 +26,13 @@ body {
     background-image: linear-gradient(to bottom, #009688 0px, #009688 20vh, #dddbd1 20vh, #dddbd1 100%);
 }
 .container {
-    width: 80%;
-    height: 90%;
+    width: 90%;
+    height: 95%;
     display: flex;
 }
 .container, container > div, #contactsArea > div, #messagesArea > div {
     border: 1px solid lightgray;
-    box-shadow: 1px 1px #c5c5c5;
+    box-shadow: 1px 1px 5px #9e9e9e; 
 }
 /* Dimesionamento div principali e div minori */
 #contactsArea {
@@ -40,11 +40,11 @@ body {
 }
 .personal, #typing, #search {
     height: 8%;
-    background-color: lightgrey;
+    background-color:#EDEDED;
 }
 #notifications {
     height: 12%;
-    background-color: lightblue;
+    background-color: #9DE1FE;
 }
 #contactList {
     height: 72%;
@@ -111,7 +111,7 @@ body {
      align-content: center;
  }
   #contactList > div:hover {
-      background-color: lightgray;
+      background-color: #EDEDED;
   }
  #contactList p {
      font-weight: bold;
