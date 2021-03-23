@@ -3,6 +3,19 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+.textBold {
+    font-weight: bold;
+}
+.textSmallerGrey {
+    font-size: 0.8em;
+    color:rgb(107, 107, 107)y;
+}
+.textSmallerGreyUnder {
+    font-size: 0.8em;
+    color:rgb(107, 107, 107);
+    text-decoration: underline;
 }
 body {
     width: 100%;
@@ -18,7 +31,8 @@ body {
     display: flex;
 }
 .container, container > div, #contactsArea > div, #messagesArea > div {
-    border: 1px solid black;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px #c5c5c5;
 }
 /* Dimesionamento div principali e div minori */
 #contactsArea {
@@ -47,8 +61,36 @@ body {
 #contactsArea > div, #messagesArea > div {
     padding: 10px 10px;
 }
-.personal {
+.personal, #typing {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+#notifications, #search {
+    display: flex;
+    align-items: center;
+}
+/* contenuti */
+.personal div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.personal img, #contactList img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.personal p {
+    margin-left: 20px;
+    color: rgb(105, 105, 105);
+}
+#notifications div:first-child {
+    background-color: white;
+    color: lightblue;
+    padding: 10px;
+    font-size: 1.5em;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
