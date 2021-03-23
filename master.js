@@ -3,10 +3,9 @@ var app = new Vue({
 
   data: {
     contacts: [
-      
       {
         name: "Michele",
-        avatar: "img/avatar_1.jpg",
+        avatar: "_1",
         visible: true,
         messages: [
           {
@@ -28,7 +27,7 @@ var app = new Vue({
       },
       {
         name: "Fabio",
-        avatar: "img/avatar_2.jpg",
+        avatar: "_2",
         visible: true,
         messages: [
           {
@@ -50,7 +49,7 @@ var app = new Vue({
       },
       {
         name: "Samuele",
-        avatar: "img/avatar_3.jpg",
+        avatar: "_3",
         visible: true,
         messages: [
           {
@@ -72,7 +71,7 @@ var app = new Vue({
       },
       {
         name: "Luisa",
-        avatar: "img/avatar_4.jpg",
+        avatar: "_4",
         visible: true,
         messages: [
           {
@@ -88,13 +87,17 @@ var app = new Vue({
         ],
       },
     ],
+    // chiusura array contacts
+
+
+
+
+
   }, // chiusura data
 
   methods: {
-    /*avatarConstructor() {
-      this.fullAvatar = "'img/avatar" + this.contact.avatar + ".jpg'";
-      return this.fullAvatar;
-    },*/
+  
   }, // chiusura methods
+  
 }); // chiusura vue
 Vue.config.devtools = true;

@@ -39,7 +39,7 @@
             </div>
             <div id="contactList">
                 <div v-for="contact in contacts">
-                    <img :src=contact.avatar alt="Contact profile pic">
+                    <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact">
                     <p>{{contact.name}}</p>
                 </div>
             </div>
@@ -49,7 +49,12 @@
             <div class="personal">
                 <div>
                     <img src="img/avatar_1.jpg" alt="">
-                    <span>Michele</span>
+                    <div >
+                        <p>Michele</p>
+                        <p class="textSmallerGrey">Ultimo accesso oggi alle</p>
+                    </div>
+                    
+                    
                 </div>
                 <div>
                     <p><i class="fas fa-search"></i></p>
@@ -58,13 +63,9 @@
                 </div>
             </div>
             <div id="messages" class="clearfix">
-                <div class="floatRight" v-for="message in contacts[0].messages">
+                <div v-for="message in contacts[0].messages" :class="(message.status == 'sent') ? 'floatRight' : 'floatLeft'">
                     <p>{{ message.text }}</p>
                     <p>{{ message.date }}</p>
-                </div>
-                <div class="floatLeft">
-                    <p>Messaggio di prova</p>
-                    <p>Orario</p>
                 </div>
             </div>
             <div id="typing">

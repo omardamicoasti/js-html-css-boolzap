@@ -76,7 +76,7 @@ body {
     align-items: center;
 }
 /* contenuti */
-.personal div {
+.personal > div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -137,6 +137,7 @@ body {
      padding: 50px 50px;
      display: flex;
      flex-direction: column;
+     overflow-y: auto;
  }
  #messages > div {
      position: relative;
@@ -154,14 +155,15 @@ body {
      font-size: 0.8em;
      color: grey;
  }
+.floatLeft {
+     align-self: flex-start;
+     background-color: #FFFFFF;
+ }
  .floatRight {
      align-self: flex-end;
      background-color: #DCF8C6;
  }
-  .floatLeft {
-     align-self: flex-start;
-     background-color: #FFFFFF;
- }
+ 
 
 
 
