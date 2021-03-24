@@ -38,7 +38,7 @@
                 <div><p><i class="fas fa-search"></i></p><input placeholder="Cerca o inizia una nuova chat" type="text"></div>
             </div>
             <div id="contactList">
-                <div v-for="contact in contacts">
+                <div v-for="(contact, index) in contacts" @click="showConversation(index)">
                     <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact">
                     <p>{{contact.name}}</p>
                 </div>
@@ -48,13 +48,11 @@
         <div id="messagesArea">
             <div class="personal">
                 <div>
-                    <img src="img/avatar_1.jpg" alt="">
+                    <img :src="'img/avatar' + contacts[contactCounter].avatar + '.jpg'" alt="contact">
                     <div >
-                        <p>Michele</p>
+                        <p>{{contacts[contactCounter].name}}</p>
                         <p class="textSmallerGrey">Ultimo accesso oggi alle</p>
-                    </div>
-                    
-                    
+                    </div>      
                 </div>
                 <div>
                     <p><i class="fas fa-search"></i></p>
@@ -63,7 +61,7 @@
                 </div>
             </div>
             <div id="messages" class="clearfix">
-                <div v-for="message in contacts[0].messages" :class="(message.status == 'sent') ? 'floatRight' : 'floatLeft'">
+                <div v-for="message in contacts[contactCounter].messages" :class="(message.status == 'sent') ? 'floatRight' : 'floatLeft'">
                     <p>{{ message.text }}</p>
                     <p>{{ message.date }}</p>
                 </div>

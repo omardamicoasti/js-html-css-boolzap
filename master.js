@@ -88,16 +88,20 @@ var app = new Vue({
       },
     ],
     // chiusura array contacts
+    contactCounter: 0,
+    /*:class="(i == contactCounter) ? 'active' : null"
 
-
-
-
-
+      NEL CSS DEFINIZIONE CLASSE ACTIVE
+    */
   }, // chiusura data
 
   methods: {
-  
+    showConversation : function(index) {
+      this.contactCounter = index;
+    },
   }, // chiusura methods
-  
 }); // chiusura vue
 Vue.config.devtools = true;
+
+
+

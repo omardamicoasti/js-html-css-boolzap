@@ -32,9 +32,10 @@ body {
 }
 .container {
     width: 90%;
+    min-width: 850px;
     height: 95%;
     display: flex;
-    box-shadow: 2px 2px 2px 2.5px #9e9e9e; 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .container > div, #contactsArea > div, #messagesArea > div {
     border-right: 1px solid lightgray; 
@@ -109,60 +110,76 @@ body {
  #search input {
      width: 85%;
      border: 1px solid white;
- }
- #contactList > div {
+}
+#contactList {
+     overflow-y: auto;
+}
+#contactList > div {
      padding: 10px 5px;
      display: flex;
      align-content: center;
- }
-  #contactList > div:hover {
+}
+#contactList > div:hover {
       background-color: #EDEDED;
-  }
- #contactList p {
+}
+#contactList p {
      font-weight: bold;
- }
+}
 
- #typing > input {
+#typing > input {
     width: 80%;
     height: 100%;
     padding: 10px 0px;
     border: 1px solid #EDEDED;
- }
- #typing p {
+}
+#typing p {
     color: rgb(105, 105, 105);
     font-size: 1.5em;
     padding: 0 20px;
- }
- #messages {
+}
+#messages {
      padding: 50px 50px;
      display: flex;
      flex-direction: column;
      overflow-y: auto;
- }
- #messages > div {
+}
+#messages > div {
      position: relative;
      width: 350px;
      margin-bottom: 20px;
      padding: 20px 15px;
      border-radius: 20px;
      font-weight: bold;
- }
- #messages > div > p:nth-child(2) {
+}
+#messages > div > p:nth-child(2) {
      position: absolute;
      right: 10px;
      bottom: 5px;
      font-weight:lighter;
      font-size: 0.8em;
      color: grey;
- }
+}
 .floatLeft {
      align-self: flex-start;
      background-color: #FFFFFF;
- }
+}
  .floatRight {
      align-self: flex-end;
      background-color: #DCF8C6;
- }
+}
+
+
+@media screen and (max-width: 900px) {
+     .container {
+        width: 100%;
+        height: 100%;
+    };
+    #messages > div {
+     width: 150px;
+     margin-bottom: 20px;
+     padding: 15px 10px;
+    };
+}
  
 
 
