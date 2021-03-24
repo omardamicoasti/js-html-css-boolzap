@@ -18,7 +18,7 @@
         <div id="contactsArea">
             <div class="personal">
                 <div>
-                    <img src="img/avatar_io.jpg" alt="">
+                    <img src="img/avatar_io.png" alt="">
                     <span>Omar D'Amico</span>
                 </div>
                 <div>
@@ -38,7 +38,7 @@
                 <div><p><i class="fas fa-search"></i></p><input placeholder="Cerca o inizia una nuova chat" type="text"></div>
             </div>
             <div id="contactList">
-                <div v-for="(contact, index) in contacts" @click="showConversation(index)">
+                <div :style="(contactCounter == index) ? colorContact : null" v-for="(contact, index) in contacts" @click="showConversation(index)">
                     <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact">
                     <p>{{contact.name}}</p>
                 </div>
@@ -68,8 +68,8 @@
             </div>
             <div id="typing">
                     <p><i class="far fa-smile"></i></p>
-                    <input placeholder="Scrivi un messaggio" type="text">
-                    <p><i class="fas fa-microphone"></i></p>
+                    <input placeholder="Scrivi un messaggio" type="text" v-model="newText" @keyup.enter="sendMessage">
+                    <p @click="sendMessage"><i class="fas fa-microphone"></i></p>
             </div>
         </div>
         <!-- chiusura messagesArea -->

@@ -89,16 +89,36 @@ var app = new Vue({
     ],
     // chiusura array contacts
     contactCounter: 0,
-    /*:class="(i == contactCounter) ? 'active' : null"
-
-      NEL CSS DEFINIZIONE CLASSE ACTIVE
-    */
+    colorContact: "",
+    newText: "",
   }, // chiusura data
 
   methods: {
-    showConversation : function(index) {
+    showConversation: function (index) {
       this.contactCounter = index;
+      this.colorContact = "background-color: grey;";
     },
+    sendMessage: function () {
+      let newMessage = {
+      date: "10/01/2020 15:50:00",
+      text: this.newText,
+      status: "sent",
+      };
+      this.contacts[this.contactCounter].messages.push(newMessage);
+      this.newText = "";
+      setTimeout(this.receiveAnswer, 3000);
+    },
+    receiveAnswer: function () {
+      let newAnswer = {
+        date: "10/01/2020 15:50:00",
+        text: "Ok, perfetto!",
+        status: "received",
+      };
+      this.contacts[this.contactCounter].messages.push(newAnswer);
+    },
+    messageDate : function () {
+      
+    }
   }, // chiusura methods
 }); // chiusura vue
 Vue.config.devtools = true;
