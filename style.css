@@ -143,6 +143,7 @@ body {
      display: flex;
      flex-direction: column;
      overflow-y: auto;
+     scroll-margin-block-start: 0;
 }
 #messages > div {
      position: relative;
@@ -172,6 +173,9 @@ body {
      background-color: #DCF8C6;
 }
 
+.container > #contactsArea > #contactList > .hideContact {
+    display: none;
+}
 
 @media screen and (max-width: 900px) {
      .container {

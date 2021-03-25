@@ -91,7 +91,8 @@ var app = new Vue({
     contactCounter: 0,
     colorContact: "",
     newText: "",
-    searchBar: "",ma s
+    searchBar: "",
+    hideContact: false,
   }, // chiusura data
 
   methods: {
@@ -143,32 +144,15 @@ var app = new Vue({
       // se dichiaro variabili qui dentro anche con var inserendole poi nei metodi invio e ricevi non le vede
     },
     // LA FUNZIONE QUI SOTTO NON VA PERO' STO PROVANDO A SEGUIRE QUESTO RAGIONAMENTO
-    /*searchContact: function () {
+    searchContact: function () {
       for (let i = 0; i < this.contacts.length; i++) {
-        // console.log(this.contacts[i].name);
-        let nameSearched = this.contacts.includes(this.searchBar);
-        console.log(nameSearched);
-        if ((this.contacts.includes(nameSearched)) || (searchBar == "")) {
-          contacts[i].style.display = "block";
-        } else {
-          contacts[i].style.display = "none";
+        if (!this.contacts[i].name.includes(this.searchBar)) {
+          this.hideContact = true;
+        } else  {
+
         }
-      } //chiusura ciclo for
-    }, //chiusura metodo searchContact
-    */
-   
-   
-
-  } //chiusura search contact
-  
- 
-
-
-
-
-
-
-
+      } 
+    },
   }, // chiusura methods
 }); // chiusura vue
 Vue.config.devtools = true;

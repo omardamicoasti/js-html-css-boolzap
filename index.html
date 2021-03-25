@@ -38,7 +38,7 @@
                 <div><p><i class="fas fa-search"></i></p><input type="text" placeholder="Cerca o inizia una nuova chat" @keyup="searchContact" v-model="searchBar"></div>
             </div>
             <div id="contactList">
-                <div :style="(contactCounter == index) ? colorContact : null" v-for="(contact, index) in contacts" @click="showConversation(index)">
+                <div :style="(contactCounter == index) ? colorContact : null" v-for="(contact, index) in contacts" @click="showConversation(index)" :class="(hideContact == true) ? 'hideContact' : null">
                     <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact">
                     <p>{{contact.name}}</p>
                 </div>
