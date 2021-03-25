@@ -152,6 +152,9 @@ body {
      border-radius: 20px;
      font-weight: bold;
 }
+#messages > div > p {
+    word-wrap: break-word;
+}
 #messages > div > p:nth-child(2) {
      position: absolute;
      right: 10px;
