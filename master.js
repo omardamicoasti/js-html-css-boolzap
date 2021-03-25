@@ -88,40 +88,61 @@ var app = new Vue({
       },
     ],
     // chiusura array contacts
+    notificationsOnOff: "far fa-bell-slash",
+    notificationsText: "Attiva notifiche via desktop",
     contactCounter: 0,
     colorContact: "",
     newText: "",
   }, // chiusura data
 
   methods: {
+    changeNotifications: function () {
+      this.notificationsOnOff = "far fa-bell";
+      this.notificationsText = "Disattiva notifiche via desktop";
+    },
+    // metodo per mostrare conversazione del contatto su cui clicco
     showConversation: function (index) {
       this.contactCounter = index;
       this.colorContact = "background-color: grey;";
     },
+    // metodo per inviare nuovo messaggio
     sendMessage: function () {
+      // gestione data
+      var date = new Date();
+      var format = { year: "numeric", month: "2-digit", day: "2-digit" };
+      // gestione nuovo messaggio
       let newMessage = {
-      date: "10/01/2020 15:50:00",
-      text: this.newText,
-      status: "sent",
+        // date: "10/01/2020 15:50:00",
+        date:
+          date.toLocaleDateString(undefined, format) +
+          " " +
+          date.toLocaleTimeString(),
+        text: this.newText,
+        status: "sent",
       };
       this.contacts[this.contactCounter].messages.push(newMessage);
       this.newText = "";
       setTimeout(this.receiveAnswer, 3000);
     },
+    // metodo per ricevere messaggio automatico di risposta
     receiveAnswer: function () {
+      // gestione data
+      var date = new Date();
+      var format = { year: "numeric", month: "2-digit", day: "2-digit" };
+      // gestione nuova risposta
       let newAnswer = {
-        date: "10/01/2020 15:50:00",
+        date:
+          date.toLocaleDateString(undefined, format) +
+          " " +
+          date.toLocaleTimeString(),
         text: "Ok, perfetto!",
         status: "received",
       };
       this.contacts[this.contactCounter].messages.push(newAnswer);
     },
-    messageDate : function () {
-      
-    }
+    messageDate: function () {
+      // se dichiaro variabili qui dentro anche con var inserendole poi nei metodi invio e ricevi non le vede
+    },
   }, // chiusura methods
 }); // chiusura vue
 Vue.config.devtools = true;
-
-
-
