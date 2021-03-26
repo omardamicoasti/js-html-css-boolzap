@@ -12,16 +12,19 @@ var app = new Vue({
             date: "10/01/2020 15:30:55",
             text: "Hai portato a spasso il cane?",
             status: "sent",
+            menuVisible: false,
           },
           {
             date: "10/01/2020 15:50:00",
             text: "Ricordati di dargli da mangiare",
             status: "sent",
+            menuVisible: false,
           },
           {
             date: "10/01/2020 16:15:22",
             text: "Tutto fatto!",
             status: "received",
+            menuVisible: false,
           },
         ],
       },
@@ -34,16 +37,19 @@ var app = new Vue({
             date: "20/03/2020 16:30:00",
             text: "Ciao come stai?",
             status: "sent",
+            menuVisible: false,
           },
           {
             date: "20/03/2020 16:30:55",
             text: "Bene grazie! Stasera ci vediamo?",
             status: "received",
+            menuVisible: false,
           },
           {
             date: "20/03/2020 16:35:00",
             text: "Mi piacerebbe ma devo andare a fare la spesa.",
             status: "sent",
+            menuVisible: false,
           },
         ],
       },
@@ -56,16 +62,19 @@ var app = new Vue({
             date: "28/03/2020 10:10:40",
             text: "La Marianna va in campagna",
             status: "received",
+            menuVisible: false,
           },
           {
             date: "28/03/2020 10:20:10",
             text: "Sicuro di non aver sbagliato chat?",
             status: "sent",
+            menuVisible: false,
           },
           {
             date: "28/03/2020 16:15:22",
             text: "Ah scusa!",
             status: "received",
+            menuVisible: false,
           },
         ],
       },
@@ -78,20 +87,23 @@ var app = new Vue({
             date: "10/01/2020 15:30:55",
             text: "Lo sai che ha aperto una nuova pizzeria?",
             status: "sent",
+            menuVisible: false,
           },
           {
             date: "10/01/2020 15:50:00",
             text: "Si, ma preferirei andare al cinema",
             status: "received",
+            menuVisible: false,
           },
         ],
       },
     ],
     // chiusura array contacts
-    contactCounter: 0, 
+    contactCounter: 0,
     colorContact: "", //var per applicazione colore grigio scuro ai contatti selezionati
     newText: "",
     searchBar: "",
+    contactListDetails: 0,
   }, // chiusura data
 
   methods: {
@@ -150,8 +162,34 @@ var app = new Vue({
         } else {
           this.contacts[i].visible = false;
         }
-      } 
+      }
     },
+    showMenuMessageVisibility: function (index) {
+      this.contacts[this.contactCounter].messages.forEach((message, i) => {
+        message.menuVisible = (i === index);
+      });
+    },
+    deleteMessage: function (i) {
+      this.contacts[this.contactCounter].messages.splice(i, 1);
+    },
+    showContactListDetails: function () {
+      let tmp = this.contacts[this.contactCounter].messages.length;
+      this.contactListDetails = tmp -1;
+      console.log(this.contactListDetails);
+    }
+
   }, // chiusura methods
 }); // chiusura vue
 Vue.config.devtools = true;
+
+
+/* NOTE: showContactListDetails è settato al click ma devo metterla
+ogni volta che invio ricevo un messaggio. In più al momento segna come ultimo accesso
+il primo messaggio perché vede contactListDetails: 0.
+
+La funziona scritta sopra è corretta mi pare ma lanciandola  a riga 44 
+(contact.messages[contactListDetails].date) da il seguente errore:
+
+Cannot read property 'date' of undefined
+*/
+

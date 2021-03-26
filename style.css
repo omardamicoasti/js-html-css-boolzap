@@ -22,6 +22,15 @@
     color:rgb(107, 107, 107);
     text-decoration: underline;
 }
+.cap {
+    text-transform: capitalize;
+}
+.relative {
+    position: relative;
+}
+#notifications p, #search p, #contactList div, #messages #menuMessage p {
+    cursor: pointer;
+}
 body {
     width: 100%;
     height: 100vh;
@@ -126,7 +135,12 @@ body {
 #contactList p {
      font-weight: bold;
 }
-
+#contactList p:nth-child(3) {
+    position: absolute;
+    right: 10px;
+    color: rgb(105, 105, 105);
+    font-size: 0.8em;
+}
 #typing > input {
     width: 80%;
     height: 100%;
@@ -164,6 +178,35 @@ body {
      font-size: 0.8em;
      color: grey;
 }
+#messages > div > p:nth-child(3) {
+     position: absolute;
+     right: 10px;
+     top: 5px;
+     font-weight:lighter;
+     font-size: 0.8em;
+     color: rgb(209, 209, 209);
+}
+#messages > div > #menuMessage {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    width: 100px;
+    height: 80px;
+    background-color: grey;
+    opacity: 0.9;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    visibility: hidden;
+}
+.visible {
+    visibility: visible !important;
+}
+#messages > div > #menuMessage > p {
+    color: white;
+}
 .floatLeft {
      align-self: flex-start;
      background-color: #FFFFFF;
@@ -171,10 +214,6 @@ body {
  .floatRight {
      align-self: flex-end;
      background-color: #DCF8C6;
-}
-
-.container > #contactsArea > #contactList > .hideContact {
-    display: none;
 }
 
 @media screen and (max-width: 900px) {
