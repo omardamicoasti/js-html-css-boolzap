@@ -41,7 +41,7 @@
                 <div :style="(contactCounter == index) ? colorContact : null" v-for="(contact, index) in contacts" @click="showConversation(index)" v-if="contact.visible" class="relative">
                     <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact">
                     <p class="cap">{{ contact.name }}</p>
-                    <p @click="showContactListDetails">{{ "Ultimo accesso alle " + contact.messages[contactListDetails].date }}</p> 
+                    <!-- <p @click="showContactListDetails">{{ "Ultimo accesso alle " + contact.messages[contactListDetails].date }}</p>  -->
                     <!-- vedi nota al fondo del JS -->
                 </div>
             </div>
