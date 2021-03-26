@@ -4,7 +4,7 @@ var app = new Vue({
   data: {
     contacts: [
       {
-        name: "Michele",
+        name: "michele",
         avatar: "_1",
         visible: true,
         messages: [
@@ -26,7 +26,7 @@ var app = new Vue({
         ],
       },
       {
-        name: "Fabio",
+        name: "fabio",
         avatar: "_2",
         visible: true,
         messages: [
@@ -48,7 +48,7 @@ var app = new Vue({
         ],
       },
       {
-        name: "Samuele",
+        name: "samuele",
         avatar: "_3",
         visible: true,
         messages: [
@@ -70,7 +70,7 @@ var app = new Vue({
         ],
       },
       {
-        name: "Luisa",
+        name: "luisa",
         avatar: "_4",
         visible: true,
         messages: [
@@ -88,11 +88,10 @@ var app = new Vue({
       },
     ],
     // chiusura array contacts
-    contactCounter: 0,
-    colorContact: "",
+    contactCounter: 0, 
+    colorContact: "", //var per applicazione colore grigio scuro ai contatti selezionati
     newText: "",
     searchBar: "",
-    hideContact: false,
   }, // chiusura data
 
   methods: {
@@ -146,10 +145,10 @@ var app = new Vue({
     // LA FUNZIONE QUI SOTTO NON VA PERO' STO PROVANDO A SEGUIRE QUESTO RAGIONAMENTO
     searchContact: function () {
       for (let i = 0; i < this.contacts.length; i++) {
-        if (!this.contacts[i].name.includes(this.searchBar)) {
-          this.hideContact = true;
-        } else  {
-
+        if (this.contacts[i].name.includes(this.searchBar)) {
+          this.contacts[i].visible = true;
+        } else {
+          this.contacts[i].visible = false;
         }
       } 
     },
