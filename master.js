@@ -157,18 +157,20 @@ var app = new Vue({
     // LA FUNZIONE QUI SOTTO NON VA PERO' STO PROVANDO A SEGUIRE QUESTO RAGIONAMENTO
     searchContact: function () {
       for (let i = 0; i < this.contacts.length; i++) {
-        if (this.contacts[i].name.includes(this.searchBar)) {
+        if (this.contacts[i].name.toLowerCase().includes(this.searchBar.toLowerCase())) {
           this.contacts[i].visible = true;
         } else {
           this.contacts[i].visible = false;
         }
       }
     },
+    // chiude la tendina solo quando clicco su un altro chevron
     showMenuMessageVisibility: function (index) {
       this.contacts[this.contactCounter].messages.forEach((message, i) => {
         message.menuVisible = (i === index);
-      });
+      });    
     },
+    // non cancella i messaggi nuovi
     deleteMessage: function (i) {
       this.contacts[this.contactCounter].messages.splice(i, 1);
     },
