@@ -114,7 +114,7 @@ var app = new Vue({
     // metodo per mostrare conversazione del contatto su cui clicco
     showConversation: function (index) {
       this.contactCounter = index;
-      this.colorContact = "background-color: grey;";
+      this.colorContact = "background-color: lightgrey;";
     },
     // metodo per inviare nuovo messaggio
     sendMessage: function () {
@@ -157,7 +157,11 @@ var app = new Vue({
     // LA FUNZIONE QUI SOTTO NON VA PERO' STO PROVANDO A SEGUIRE QUESTO RAGIONAMENTO
     searchContact: function () {
       for (let i = 0; i < this.contacts.length; i++) {
-        if (this.contacts[i].name.toLowerCase().includes(this.searchBar.toLowerCase())) {
+        if (
+          this.contacts[i].name
+            .toLowerCase()
+            .includes(this.searchBar.toLowerCase())
+        ) {
           this.contacts[i].visible = true;
         } else {
           this.contacts[i].visible = false;
@@ -167,31 +171,21 @@ var app = new Vue({
     // chiude la tendina solo quando clicco su un altro chevron
     showMenuMessageVisibility: function (index) {
       this.contacts[this.contactCounter].messages.forEach((message, i) => {
-        message.menuVisible = (i === index);
-      });    
+        message.menuVisible = i === index;
+      });
     },
     // non cancella i messaggi nuovi
     deleteMessage: function (i) {
       this.contacts[this.contactCounter].messages.splice(i, 1);
     },
-    showContactListDetails: function () {
-      let tmp = this.contacts[this.contactCounter].messages.length;
-      this.contactListDetails = tmp -1;
-      console.log(this.contactListDetails);
-    }
-
+    showContactListDetails: function (index) {
+      return this.contacts[index].messages[
+        this.contacts[index].messages.length - 1
+      ].date;
+    },
   }, // chiusura methods
 }); // chiusura vue
 Vue.config.devtools = true;
 
 
-/* NOTE: showContactListDetails è settato al click ma devo metterla
-ogni volta che invio ricevo un messaggio. In più al momento segna come ultimo accesso
-il primo messaggio perché vede contactListDetails: 0.
-
-La funziona scritta sopra è corretta mi pare ma lanciandola  a riga 44 
-(contact.messages[contactListDetails].date) da il seguente errore:
-
-Cannot read property 'date' of undefined
-*/
 
